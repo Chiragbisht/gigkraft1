@@ -1,9 +1,10 @@
+import { montserrat } from "@/app/fonts/font";
 import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1C1C1C] text-white px-8 py-12 w-full h-[618px] ">
-      <div className="max-w-7xl mx-auto">
+    <footer className={`${montserrat.className} bg-[#1C1C1C] text-white px-8  w-full h-auto`}>
+      <div className="max-w-7xl mx-auto pt-4 py-2">
         <div className="mb-12">
           <Link href="/" className="text-[#FF4700] text-2xl font-bold">
             UPTECHUNT
