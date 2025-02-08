@@ -2,7 +2,7 @@ import React from 'react'
 
 const Onboardpage = () => {
   return (
-    <div>Onboardpage</div>
+    <div className=' h-screen flex justify-center items-center '>Onboardpage</div>
   )
 }
 
