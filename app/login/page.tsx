@@ -1,17 +1,11 @@
-import LoginCard from '@/components/loginPage/loginCard'
-import React from 'react'
-import Footer from '@/components/footer'
+import LoginCard from "@/components/loginPage/loginCard";
+import React from "react";
+import Footer from "@/components/footer/footer";
 
 const LoginPage = () => {
   return (
-    <div className=" ">
-      {/* Main Content */}
-      <div className="flex flex-col items-center justify-center mt-12 mb-10 flex-grow">
-        <LoginCard />
-      </div>
-      
-      {/* Footer Stays at Bottom */}
-      <Footer />
+    <div className=" h-screen flex items-center justify-center">
+      <LoginCard />
     </div>
   );
 };

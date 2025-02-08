@@ -4,7 +4,7 @@ import MultiStepSignup from '../freelancer-multistepForm/multiStepSignup'
 
 const SignUp = () => {
   return (
-    <div className='  flex items-center justify-center'>
+    <div className='  flex items-center justify-center py-8'>
        <MultiStepSignup/>
     </div>
   )
