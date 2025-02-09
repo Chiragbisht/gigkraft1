@@ -89,14 +89,14 @@ export default function MultiStepForm() {
     >
       <div className={`flex flex-col items-center justify-center h-full ${montserrat.className}`}>
         <div className="flex items-center justify-center h-full">
-          {currentStepIndex > 0 && (
+          {/* {currentStepIndex > 0 && (
             <button
               onClick={prevStep}
               className="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700"
             >
               ← Back
             </button>
-          )}
+          )} */}
           <div className="ml-auto text-sm font-medium text-gray-500">
             {currentStepIndex > 0
               ? `${currentStepIndex}/${steps.length - 1}`
@@ -114,7 +114,7 @@ export default function MultiStepForm() {
           <div className="mt-8 flex justify-end">
             <button
               onClick={nextStep}
-              className="rounded-full lg:max-w-[365px] h-[35px] lg:w-[365px] max-w-xs bg-[#FF4C4A] px-8  text-white hover:bg-[#FF4C4A]/80"
+              className="rounded-full lg:max-w-[365px] h-[35px] lg:w-[365px] max-w-xs bg-[#FF4C4A] px-8  text-white hover:bg-[#FF4C4A]/110"
             >
               <span className={`${montserrat.className} text-[16px] font-[600]`}>Next</span>
             </button>
