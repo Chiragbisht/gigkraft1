@@ -10,6 +10,7 @@ type UserType = "freelancer" | "client" | null;
 export default function MultiStepSignup() {
   const [step, setStep] = useState(1);
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [userType, setUserType] = useState<UserType>(null);
   const router = useRouter();
 
@@ -29,9 +30,9 @@ export default function MultiStepSignup() {
 
   return (
     <>
-      {step === 1 && <SignUpCard nextStep={nextStep} email={email} setEmail={setEmail} />}
+      {step === 1 && <SignUpCard nextStep={nextStep} email={email} setEmail={setEmail} password={password} setPassword={setPassword} />}
       {step === 2 && (
-        <SignupForm nextStep={nextStep} prevStep={prevStep} setUserType={setUserType} email={email} />
+        <SignupForm nextStep={nextStep} prevStep={prevStep} setUserType={setUserType} email={email}  />
       )}
     </>
   );

@@ -1,5 +1,6 @@
 "use client";
 
+import { montserrat } from "@/app/fonts/font";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -40,11 +41,11 @@ export default function SignupForm({
 
   return (
     <Card
-      className="w-full max-w-2xl mx-auto"
+      className={`lg:w-[794px] md:w-[494px] sm:w-[454px] w-[320px] h-auto py-[44px] items-center rounded-[10px] ${montserrat.className}`} 
       style={{ boxShadow: "0px 4px 45px 0px #0000001F" }}
     >
       <CardHeader className="space-y-6">
-        <CardTitle className="text-3xl font-medium text-center">
+        <CardTitle className="lg:text-[30px] text-[20px] font-medium text-center">
           Complete your free account setup
         </CardTitle>
         <div className="flex items-center gap-3 justify-center">
