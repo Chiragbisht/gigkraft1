@@ -8,19 +8,20 @@ import Verfication from './verification/verfication'
 
 const Profile = () => {
   return (
-    <div className=' max-w-7xl flex flex-row gap-x-5 '>
+    <div className='max-w-7xl mx-auto w-full flex justify-center'>
+      <div className='flex flex-row gap-x-5'>
         <div className='flex flex-col gap-y-6'>
-            <FreelancerProfileCard/>
-            <Portfolio/>
-            <Reviews/>
-            <Experience/>
-            <Education/>
+          <FreelancerProfileCard />
+          <Portfolio />
+          <Reviews />
+          <Experience />
+          <Education />
         </div>
-        <div className=' flex flex-col gap-y-6'>
-            <Verfication/>
+        <div className='flex flex-col gap-y-6'>
+          <Verfication />
         </div>
-        
-    </div> 
+      </div>
+    </div>
   )
 }
 
