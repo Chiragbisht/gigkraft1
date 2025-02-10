@@ -6,25 +6,24 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+
 import { Textarea } from "@/components/ui/textarea";
-import { SkillsInput } from "@/components/jobPosting/SkillsInput";
-import { TimelineInput } from "@/components/jobPosting/TimelineInput";
-import { ExpertiseInput } from "@/components/jobPosting/ExpertiseInput";
-import { BudgetInput } from "@/components/jobPosting/BudgetInput";
+
+import { montserrat } from "@/app/fonts/font";
+import { SkillsInput } from "./jobPosting/SkillsInput";
+import { TimelineInput } from "./jobPosting/TimelineInput";
+import { ExpertiseInput } from "./jobPosting/ExpertiseInput";
+import { BudgetInput } from "./jobPosting/BudgetInput";
+import Months from "./jobPosting/months";
 
 export default function JobPostingForm() {
   const [skills, setSkills] = useState<string[]>(["Web Design", "Mockup"]);
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4 font-montserrat">
-      <Card className="mx-auto max-w-7xl">
+    <div
+      className={`${montserrat.className} min-h-screen bg-gray-50 py-10 font-montserrat`}
+    >
+      <Card className="mx-auto lg:max-w-7xl max-w-[340px]">
         <CardContent className="p-6">
           <button className="flex items-center space-x-2 mb-6">
             <ArrowLeft className="h-5 w-6" />
@@ -61,17 +60,8 @@ export default function JobPostingForm() {
                 <TimelineInput />
 
                 <div className="space-y-2">
-                  <Label>How long your work take?</Label>
-                  <Select>
-                    <SelectTrigger className="w-[200px] bg-white">
-                      <SelectValue placeholder="Ex: 1-6 months" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="1-3">1-3 months</SelectItem>
-                      <SelectItem value="3-6">3-6 months</SelectItem>
-                      <SelectItem value="6-12">6-12 months</SelectItem>
-                    </SelectContent>
-                  </Select>
+                 {/* <Label>How long your work take?</Label> */}
+                 <Months/>
                 </div>
 
                 <ExpertiseInput />
@@ -109,14 +99,14 @@ export default function JobPostingForm() {
             </div>
 
             <div className="col-span-2 justify-center mt-8">
-              <div className="flex flex-col items-center space-y-2">
+              {/* <div className="flex flex-col items-center space-y-2">
                 <button className="bg-[#FF4C4A] text-white font-semibold py-2 px-4 rounded-full">
                   Create contract
                 </button>
                 <button className="border border-gray-400 text-gray-700 font-semibold py-2 px-4 rounded-full">
                   Cancel contract
                 </button>
-              </div>
+              </div> */}
             </div>
           </div>
         </CardContent>
