@@ -99,3 +99,46 @@ export const experienceData = [
       percentage: 95,
     },
   ]
+  export  const users = [
+    {
+      id: 1,
+      name: "Bhuvesh Singh",
+      role: "UX designer, Gharphic designer",
+      hourlyRate: 60,
+      totalEarnings: 76,
+      isOnline: true,
+      rating: 4,
+      reviews: 12,
+      location: "Manhattan, USA",
+      tags: ["Web design", "Web design", "Web design", "Web design"],
+      badge: "Top rated",
+    },
+    {
+      id: 2,
+      name: "Malkhan Singh",
+      role: "UX designer, Gharphic designer",
+      hourlyRate: 60,
+      totalEarnings: 76,
+      isOnline: true,
+      rating: 4,
+      reviews: 12,
+      location: "Manhattan, USA",
+      tags: ["Web design", "Web design", "Web design", "Web design"],
+      badge: "Top rated",
+    },
+    {
+      id: 3,
+      name: "Vibhuti Narayan Mishra",
+      role: "UX designer, Gharphic designer",
+      hourlyRate: 60,
+      totalEarnings: 76,
+      isOnline: true,
+      rating: 4,
+      reviews: 12,
+      location: "Manhattan, USA",
+      tags: ["Web design", "Web design", "Web design", "Web design"],
+      badge: "Top rated",
+    },
+    // Add more users as needed
+  ]
+  
