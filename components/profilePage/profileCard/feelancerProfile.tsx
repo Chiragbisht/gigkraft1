@@ -40,7 +40,7 @@ export default function FreelancerProfileCard() {
         </div>
       </div>
       <div className="flex flex-col w-full gap-y-1">
-        <div className="w-full justify-between lg:items-center justify-start flex flex-row">
+        <div className="w-full lg:justify-between lg:items-center justify-start flex flex-row">
           <div className="flex flex-col">
             <h2 className={`${montserrat.className} text-[24px] font-[700]`}>
               User Name
