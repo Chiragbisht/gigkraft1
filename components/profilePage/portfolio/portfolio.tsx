@@ -7,7 +7,7 @@ import PortfolioCarousel from "./projectsCarousel";
 const Portfolio = () => {
   return (
     <div
-      className=" flex flex-col gap-y-2 w-[804px] h-auto rounded-[10px] "
+      className=" flex flex-col gap-y-2 lg:w-[804px] w-[340px] md:w-[580px] sm:w-[480px]  h-auto rounded-[10px] "
       style={{ boxShadow: "0px 4px 45px 0px #0000001F" }}
     >
       <div className=" flex px-[25px] flex-row items-center justify-between border-b-[1px] h-[55px] border-solid border-[#D9D9D9] py-3  w-full">
@@ -16,7 +16,7 @@ const Portfolio = () => {
         >
           My Portfolio
         </h1>
-        <div className=" flex flex-row gap-x-5">
+        <div className=" flex flex-row lg:gap-x-5 gap-x-1">
           <Button variant={"ghost"}>
             <Image
               src={"/images/icons/delete.svg"}
@@ -30,7 +30,7 @@ const Portfolio = () => {
             variant={"outline"}
           >
             <span
-              className={`${montserrat.className} text-[12px] font-[700] text-primary`}
+              className={`${montserrat.className} lg:text-[12px] text-[10px] font-[700] text-primary`}
             >
               Edit Portfolio
             </span>

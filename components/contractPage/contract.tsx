@@ -23,7 +23,7 @@ export default function JobPostingForm() {
     <div
       className={`${montserrat.className} min-h-screen bg-gray-50 py-10 font-montserrat`}
     >
-      <Card className="mx-auto lg:max-w-7xl max-w-[340px]">
+      <Card className="mx-auto lg:max-w-5xl max-w-[340px] md:max-w-[580px] sm:max-w-[480px] w-full">
         <CardContent className="p-6">
           <button className="flex items-center space-x-2 mb-6">
             <ArrowLeft className="h-5 w-6" />

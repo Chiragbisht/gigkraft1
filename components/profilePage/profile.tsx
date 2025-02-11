@@ -5,11 +5,12 @@ import Reviews from './reviews/reviews'
 import Experience from './experience/experience'
 import Education from './education/education'
 import Verfication from './verification/verfication'
+import Skills from './skills/skills'
 
 const Profile = () => {
   return (
     <div className='max-w-7xl mx-auto w-full flex justify-center'>
-      <div className='flex flex-row gap-x-5'>
+      <div className='flex xl:flex-row flex-col gap-x-5 gap-y-5'>
         <div className='flex flex-col gap-y-6'>
           <FreelancerProfileCard />
           <Portfolio />
@@ -17,8 +18,9 @@ const Profile = () => {
           <Experience />
           <Education />
         </div>
-        <div className='flex flex-col gap-y-6'>
+        <div className='lg:flex hidden flex-col gap-y-6'>
           <Verfication />
+          <Skills/>
         </div>
       </div>
     </div>

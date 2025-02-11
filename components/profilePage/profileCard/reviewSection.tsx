@@ -31,10 +31,10 @@ export default function StatsSection() {
         </div>
 
         {/* Separator */}
-        <Separator orientation="vertical" className="h-12 mx-6" />
+        <Separator orientation="vertical" className="h-12 lg:mx-6 lg:block hidden" />
 
         {/* Projects Completed */}
-        <div className="flex items-center gap-3 pl-6">
+        <div className="flex items-center gap-y-3 lg:pl-6">
           <div className="p-2 rounded-full bg-blue-100">
             <LayoutGrid className="w-5 h-5 text-blue-500" />
           </div>

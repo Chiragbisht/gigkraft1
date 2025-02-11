@@ -20,11 +20,11 @@ export default function FreelancerProfileCard() {
 
   return (
     <div
-      className="flex flex-row justify-normal gap-x-[20px] py-[30px] px-5 w-[804px] h-auto rounded-[10px] bg-white"
+      className="flex flex-row justify-normal gap-x-[20px] py-[30px] px-5 lg:w-[804px] w-[340px] md:w-[580px] sm:w-[480px] h-auto rounded-[10px] bg-white" 
       style={{ boxShadow: "0px 4px 45px 0px #0000001F" }}
     >
       <div className="flex flex-col gap-y-3">
-        <div className="w-[218px] h-[219px] rounded-[9px]">
+        <div className="lg:w-[218px] lg:h-[219px] w-[100px] h-[100px] rounded-[9px] overflow-hidden">
           <Image
             src={"/images/pictures/ben.jpg"}
             alt="user"
@@ -40,7 +40,7 @@ export default function FreelancerProfileCard() {
         </div>
       </div>
       <div className="flex flex-col w-full gap-y-1">
-        <div className="w-full justify-between items-center flex flex-row">
+        <div className="w-full justify-between lg:items-center justify-start flex flex-row">
           <div className="flex flex-col">
             <h2 className={`${montserrat.className} text-[24px] font-[700]`}>
               User Name
@@ -53,7 +53,7 @@ export default function FreelancerProfileCard() {
             variant="outline"
             className="text-red-500 border-red-500 hover:bg-red-50 rounded-full"
           >
-            <span className={`${montserrat.className} text-[12px] font-[700] text-red-500`}>
+            <span className={`${montserrat.className} lg:text-[12px] text-[10px] font-[700] text-red-500`}> 
               Edit Profile
             </span>
           </Button>
@@ -65,7 +65,7 @@ export default function FreelancerProfileCard() {
           </p>
           <Button
             variant="ghost"
-            className={`${montserrat.className} text-[12px] font-[700] text-red-500 w-16`}
+            className={`${montserrat.className} text-[12px] font-[700] text-red-500 hover:text-red-500/90 w-16`}
             onClick={() => setIsExpanded(!isExpanded)}
           >
             {isExpanded ? "See Less" : "See More"}

@@ -15,7 +15,7 @@ const Experience = () => {
 
   return (
     <div
-      className="flex flex-col gap-y-2 w-[804px] h-auto rounded-[10px]"
+      className="flex flex-col gap-y-2 lg:w-[804px] w-[340px] md:w-[580px] sm:w-[480px]  h-auto rounded-[10px]"
       style={{ boxShadow: "0px 4px 45px 0px #0000001F" }}
     >
       {/* Header */}
@@ -23,9 +23,9 @@ const Experience = () => {
         <h1
           className={`${montserrat.className} lg:text-[20px] text-[15px] font-[700]`}
         >
-          Work Experience
+          Experience
         </h1>
-        <div className="flex flex-row gap-x-5">
+        <div className="flex flex-row lg:gap-x-5 gap-x-1">
           <Button variant={"ghost"}>
             <Image
               src={"/images/icons/delete.svg"}
@@ -39,7 +39,7 @@ const Experience = () => {
             variant={"outline"}
           >
             <span
-              className={`${montserrat.className} text-[12px] font-[700] text-primary`}
+              className={`${montserrat.className} lg:text-[12px] text-[10px] font-[700] text-primary`}
             >
               Edit Experience
             </span>

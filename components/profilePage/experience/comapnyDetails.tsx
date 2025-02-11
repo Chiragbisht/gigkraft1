@@ -12,7 +12,7 @@ const ComapnyDetails: React.FC<CompanyRoleProps> = ({ role, company, dateWorked,
   return (
     <div className="flex flex-col gap-y-2 w-full border-b border-[#D9D9D9] py-2 ">
       <div className={`${montserrat.className} flex items-start gap-x-3`}>
-        <Briefcase className="text-gray-600 w-6 h-6 mt-1" />
+        <Briefcase className="text-gray-600 w-6 h-6 mt-1 lg:block md:block sm:block hidden" />
         <div className="flex flex-col">
           <h2 className={`${montserrat.className} text-[16px] font-semibold text-black`}>
             {role}

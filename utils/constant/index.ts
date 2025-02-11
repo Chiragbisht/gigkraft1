@@ -79,3 +79,23 @@ export const experienceData = [
       status: "verify",
     },
   ]
+  export const skillsData = [
+    {
+      id: 1,
+      name: "HTML",
+      level: "Intermediate",
+      percentage: 80,
+    },
+    {
+      id: 2,
+      name: "CSS",
+      level: "Intermediate",
+      percentage: 90,
+    },
+    {
+      id: 3,
+      name: "JavaScript",
+      level: "Advanced",
+      percentage: 95,
+    },
+  ]
