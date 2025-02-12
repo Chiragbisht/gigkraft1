@@ -4,8 +4,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import { montserrat } from "@/app/fonts/font";
-import { users } from "@/utils/constant";
-import UserProfileCard from "./freelancersCard";
+import { jobs, users } from "@/utils/constant";
+import UserProfileCard from "./jobCards";
 
 export default function UserList() {
   return (
@@ -14,8 +14,8 @@ export default function UserList() {
 
       {/* User Cards */}
       <div className={`${montserrat.className} space-y-4`}>
-        {users.map((user) => (
-          <UserProfileCard key={user.id} user={user} />
+        {jobs.map((job) => (
+          <UserProfileCard key={job.id} job={job} />
         ))}
       </div>
 
