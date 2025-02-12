@@ -6,10 +6,10 @@ import { ProjectStats } from "@/components/jobIdPage/projectStats";
 import { SkillTags } from "@/components/jobIdPage/skillsTags";
 import { VerificationBadges } from "@/components/jobIdPage/Verification";
 import { Separator } from "@/components/ui/separator";
-interface JobProps {
-  id: number;
-}
-export default function JobPage({id}:JobProps) {
+// interface JobProps {
+//   id: number;
+// }
+export default function JobPage() {
   return (
     <div className={`min-h-screen bg-white py-10 ${montserrat.className} lg:px-0 px-3`}>
     <div
