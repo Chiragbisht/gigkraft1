@@ -26,6 +26,7 @@ export default function UserList() {
             key={page}
             variant={page === 1 ? "default" : "outline"}
             className="w-10 h-10"
+            style={{ boxShadow: "0px 4px 45px 0px #0000001F" }}
           >
             {page}
           </Button>
