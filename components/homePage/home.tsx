@@ -9,10 +9,10 @@ import Verfication from "../profilePage/verification/verfication";
 
 const Home = () => {
   return (
-    <div className=" w-full max-auto h-full space-y-5 ">
+    <div className=" w-full max-auto h-full space-y-5 lg:px-0 px-3 ">
       <Heading userName="Adam" UserType="Client" />
-      <div className=" flex flex-row gap-x-5 justify-between w-full">
-        <div className=" flex flex-col lg:mx-0 mx-auto gap-y-5"> 
+      <div className=" flex flex-row gap-x-6 justify-between w-full">
+        <div className=" flex flex-col lg:mx-0 mx-auto w-full gap-y-5"> 
           <NoJobsAlert />
           <Searchbox />
           <MatchHeading />

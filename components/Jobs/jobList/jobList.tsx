@@ -9,7 +9,7 @@ import UserProfileCard from "./jobCards";
 
 export default function UserList() {
   return (
-    <div className="space-y-6 w-full lg:max-w-[804px] md:max-w-[580px] sm:max-w-[480px] max-w-[340px] mx-auto ">
+    <div className="space-y-6 w-full mx-auto ">
       {/* Header */}
 
       {/* User Cards */}
@@ -26,6 +26,7 @@ export default function UserList() {
             key={page}
             variant={page === 1 ? "default" : "outline"}
             className="w-10 h-10"
+            style={{ boxShadow: "0px 4px 45px 0px #0000001F" }}
           >
             {page}
           </Button>

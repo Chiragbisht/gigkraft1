@@ -5,7 +5,7 @@ import { Filter } from "lucide-react";
 
 const MatchHeading = () => {
   return (
-    <div className="w-full mx-auto flex justify-between items-center lg:max-w-[804px] md:max-w-[580px] sm:max-w-[480px] max-w-[340px]">
+    <div className="w-full mx-auto flex justify-between items-center ">
       {/* Heading */}
       <p className={`${montserrat.className} text-[20px] font-[400] text-black`}>
         <span className="font-[600]">Best Matches for you</span>

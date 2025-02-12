@@ -13,10 +13,10 @@ export default function NoJobsAlert() {
 
   return (
     <div
-      className="relative w-full lg:max-w-[804px] md:max-w-[580px] sm:max-w-[480px] max-w-[340px] mx-auto bg-white rounded-lg shadow-lg p-6 sm:p-8"
+      className="relative w-full mx-auto bg-white rounded-lg shadow-lg p-6 sm:p-8"
       style={{ boxShadow: "0px 4px 45px 0px #0000001F" }}
     >
-      {/* Close Button
+      {/* Close Button */}
       <div className="absolute right-4 top-4">
         <Button
           variant="ghost"
@@ -26,7 +26,7 @@ export default function NoJobsAlert() {
         >
           <X className="h-4 w-4" />
         </Button>
-      </div> */}
+      </div>
 
       {/* Content */}
       <div className={`flex flex-col-reverse md:flex-row items-center gap-6 md:gap-8 relative ${montserrat.className}`}>

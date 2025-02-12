@@ -33,8 +33,8 @@ export default function UserProfileCard({ job }: { job: jobProps }) {
       className="relative bg-white rounded-[10px]"
       style={{ boxShadow: "0px 4px 45px 0px #0000001F" }}
     >
-      <CardContent className="py-4 bg-white">
-        <div className="flex lg:flex-row flex-col lg:items-start items-center gap-y-2 justify-between">
+      <CardContent className="py-4 bg-white rounded-[10px]">
+        <div className="flex lg:flex-row flex-col lg:items-start items-start gap-y-2 justify-between">
           {/* Left side with user info */}
           <div className="flex gap-4">
             {/* Avatar with online status */}

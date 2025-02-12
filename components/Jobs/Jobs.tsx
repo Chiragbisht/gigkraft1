@@ -11,10 +11,10 @@ import Bids from "./bids/bids";
 
 const Jobs = () => {
   return (
-    <div className=" w-full h-full space-y-5 ">
+    <div className=" w-full h-full space-y-5 lg:px-0 px-3 ">
       <Heading userName="Adam" UserType="" />
-      <div className=" flex flex-row gap-x-2 justify-between w-full">
-        <div className=" flex flex-col lg:mx-0 mx-auto gap-y-5">
+      <div className=" flex flex-row gap-x-6 justify-between w-full">
+        <div className=" flex flex-col lg:mx-0 mx-auto gap-y-5 w-full">
           <NoJobsAlert />
           <Searchbox />
           <MatchHeading />

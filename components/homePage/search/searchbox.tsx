@@ -4,7 +4,7 @@ import React from "react";
 const Searchbox = () => {
   return (
     <div
-      className={`${montserrat.className} flex flex-row  w-full lg:max-w-[804px] md:max-w-[580px] sm:max-w-[480px] max-w-[340px] mx-auto h-[53px] rounded-[10px] `}
+      className={`${montserrat.className} flex flex-row  w-full  mx-auto h-[53px] rounded-[10px] `}
       style={{ boxShadow: "0px 4px 45px 0px #0000001F" }}
     >
       <input

@@ -9,7 +9,7 @@ import UserProfileCard from "./freelancersCard";
 
 export default function UserList() {
   return (
-    <div className="space-y-6 w-full lg:max-w-[804px] md:max-w-[580px] sm:max-w-[480px] max-w-[340px] mx-auto ">
+    <div className="space-y-6 w-full mx-auto ">
       {/* Header */}
 
       {/* User Cards */}
