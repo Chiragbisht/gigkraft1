@@ -1,13 +1,29 @@
-import { Button } from "../ui/button";
+"use client";
 
-export function ClientInfo() {
+import { Button } from "../ui/button";
+import { useRouter } from "next/navigation";
+
+interface ClientInfoProps {
+  id: string;
+}
+
+export function ClientInfo({ id }: ClientInfoProps) {
+  const router = useRouter();
+  const handleProposal = () => {
+    router.push(`/job/${id}/proposal`);
+  };
   return (
     <div className="space-y-6">
       <div className="flex flex-col gap-2">
-        <Button className="bg-red-500 hover:bg-red-600 rounded-full">
+        <Button
+          className="bg-red-500 hover:bg-red-600 rounded-full"
+          onClick={handleProposal}
+        >
           Submit a proposal
         </Button>
-        <Button variant="outline" className=" rounded-full">Saved the project</Button>
+        <Button variant="outline" className=" rounded-full">
+          Saved the project
+        </Button>
       </div>
 
       <h2 className="text-xl font-semibold">About the client</h2>
