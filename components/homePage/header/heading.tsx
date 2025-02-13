@@ -1,5 +1,7 @@
+"use client";
 import { montserrat } from "@/app/fonts/font";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 interface HeadingProps {
@@ -8,6 +10,10 @@ interface HeadingProps {
 }
 
 const Heading = ({ userName, UserType }: HeadingProps) => {
+  const router = useRouter();
+  const handlePostJob = () => {
+    router.push(`/post`);
+  };
   return (
     <div className="w-full justify-between items-center flex flex-row px-4 sm:px-6 lg:px-0">
       <p className={`${montserrat.className} text-[20px] font-[400] text-black`}>
@@ -15,7 +21,7 @@ const Heading = ({ userName, UserType }: HeadingProps) => {
       </p>
 
       {UserType !== "Freelancer" && (
-        <Button className="bg-primary text-white hover:bg-primary/90 rounded-full h-[35px]">
+        <Button onClick={handlePostJob} className="bg-primary text-white hover:bg-primary/90 rounded-full h-[35px]">
           <span className={`${montserrat.className} text-[12px] font-[700] text-white`}>
             Post a New Job
           </span>

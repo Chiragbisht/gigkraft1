@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Upload } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -18,12 +18,19 @@ import Months from "./jobPosting/months";
 
 export default function JobPostingForm() {
   const [skills, setSkills] = useState<string[]>(["Web Design", "Mockup"]);
+  const [files, setFiles] = useState<File[]>([]);
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files) {
+      setFiles(Array.from(event.target.files));
+    }
+  };
 
   return (
     <div
-      className={`${montserrat.className} min-h-screen bg-gray-50 py-10 font-montserrat`}
+      className={`${montserrat.className} min-h-screen bg-gray-50 py-10 font-montserrat lg:px-0 px-3 `}
     >
-      <Card className="mx-auto lg:max-w-5xl max-w-[340px] md:max-w-[580px] sm:max-w-[480px] w-full">
+      <Card className="mx-auto max-w-5xl w-full">
         <CardContent className="p-6">
           <button className="flex items-center space-x-2 mb-6">
             <ArrowLeft className="h-5 w-6" />
@@ -60,8 +67,8 @@ export default function JobPostingForm() {
                 <TimelineInput />
 
                 <div className="space-y-2">
-                 {/* <Label>How long your work take?</Label> */}
-                 <Months/>
+                  {/* <Label>How long your work take?</Label> */}
+                  <Months />
                 </div>
 
                 <ExpertiseInput />
@@ -69,17 +76,28 @@ export default function JobPostingForm() {
                 <BudgetInput />
 
                 <div className="space-y-2">
-                  <Label>Attachments</Label>
-                  <div className="border-2 border-dashed rounded-lg p-8 text-center">
-                    <p>
+                  <label className="text-sm font-medium">Attachments</label>
+                  <label className="flex flex-col items-center justify-center rounded-lg border border-dashed border-destructive p-6 cursor-pointer hover:bg-gray-100">
+                    <Upload className="h-6 w-6 text-destructive mb-2" />
+                    <p className="text-sm text-muted-foreground">
                       Drag or{" "}
-                      <label className="text-red-500 cursor-pointer">
-                        upload project
-                        <input type="file" className="hidden" multiple />
-                      </label>{" "}
+                      <span className="text-destructive">upload project</span>{" "}
                       files
                     </p>
-                  </div>
+                    <input
+                      type="file"
+                      multiple
+                      className="hidden"
+                      onChange={handleFileChange}
+                    />
+                  </label>
+                  {files.length > 0 && (
+                    <div className="mt-2 text-sm text-gray-600">
+                      {files.map((file, index) => (
+                        <p key={index}>{file.name}</p>
+                      ))}
+                    </div>
+                  )}
                 </div>
 
                 <div className="flex justify-between items-center">
@@ -96,17 +114,6 @@ export default function JobPostingForm() {
                   </div>
                 </div>
               </form>
-            </div>
-
-            <div className="col-span-2 justify-center mt-8">
-              {/* <div className="flex flex-col items-center space-y-2">
-                <button className="bg-[#FF4C4A] text-white font-semibold py-2 px-4 rounded-full">
-                  Create contract
-                </button>
-                <button className="border border-gray-400 text-gray-700 font-semibold py-2 px-4 rounded-full">
-                  Cancel contract
-                </button>
-              </div> */}
             </div>
           </div>
         </CardContent>
