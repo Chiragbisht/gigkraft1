@@ -1,6 +1,6 @@
 import { ContractView } from "@/components/workFlowPage/ContractView";
 import React from "react";
-import LoginCard from "@/components/loginPage/loginCard";
+
 
 const WorkFlow = () => {
   return (
