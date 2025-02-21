@@ -20,7 +20,7 @@ export default function FreelancerProfileCard() {
 
   return (
     <div
-      className="flex flex-row justify-normal gap-x-[20px] py-[30px] px-5 lg:w-[804px] w-[340px] md:w-[580px] sm:w-[480px] h-auto rounded-[10px] bg-white" 
+      className="flex flex-row justify-normal gap-x-[20px]  py-[30px] px-5 lg:w-[804px] w-[340px] md:w-[580px] sm:w-[480px] h-auto rounded-[10px] bg-white" 
       style={{ boxShadow: "0px 4px 45px 0px #0000001F" }}
     >
       <div className="flex flex-col gap-y-3">

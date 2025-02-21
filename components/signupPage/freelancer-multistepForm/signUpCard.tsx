@@ -25,7 +25,7 @@ const SignUpCard: React.FC<SignupCardProps> = ({ nextStep, email, setEmail, pass
 
   return (
     <div
-      className="flex flex-col lg:w-[794px] md:w-[494px] sm:w-[454px] w-[320px] h-auto py-[34px] items-center rounded-[10px]"
+      className="flex flex-col bg-white lg:w-[794px] md:w-[494px] sm:w-[454px] w-[320px] h-auto py-[34px] items-center rounded-[10px]"
       style={{ boxShadow: "0px 4px 45px 0px #0000001F" }}
     >
       <div className=" flex items-center justify-center pb-4">

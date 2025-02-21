@@ -19,7 +19,7 @@ export default function JobPage() {
 
   return (
     <div
-      className={`min-h-screen bg-white py-10 ${montserrat.className} lg:px-0 px-3`}
+      className={`min-h-screen bg-gray-50 py-10 ${montserrat.className} lg:px-0 px-3`}
     >
       <div
         className="max-w-5xl mx-auto p-6 rounded-[10px]"

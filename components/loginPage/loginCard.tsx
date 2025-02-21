@@ -6,7 +6,7 @@ import { GoogleLogo } from "./google-button";
 const LoginCard: React.FC = () => {
   return (
     <div
-      className="flex flex-col lg:w-[794px] md:w-[494px] sm:w-[494px] w-[320px] h-auto py-[44px] items-center rounded-[10px]"
+      className="flex flex-col lg:w-[794px] bg-white md:w-[494px] sm:w-[494px] w-[320px] h-auto py-[44px] items-center rounded-[10px]"
       style={{ boxShadow: "0px 4px 45px 0px #0000001F" }}
     >
       <div className=" flex items-center justify-center">

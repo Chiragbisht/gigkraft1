@@ -3,8 +3,10 @@ import React from 'react';
 
 const Onboardpage = () => {
   return (
-    <div className="h-full flex justify-center py-10 items-center">
+    <div className=' min-h-screen bg-gray-50'> 
+    <div className="h-full flex justify-center py-10 w-full items-center ">
       <OnBoard />
+    </div>
     </div>
   );
 };
