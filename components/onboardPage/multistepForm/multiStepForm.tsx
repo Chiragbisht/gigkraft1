@@ -14,6 +14,7 @@ import { SkillsStep } from "./skills";
 import { ProfileDescriptionStep } from "./profileDescription";
 import { HourlyRateStep } from "./hourlyRate";
 import { montserrat } from "@/app/fonts/font";
+import { motion } from "motion/react";
 
 const INITIAL_DATA: FormData = {
   firstName: "",
@@ -83,44 +84,58 @@ export default function MultiStepForm() {
   ];
 
   return (
-    <div
-      className="flex flex-col lg:w-[794px] md:w-[494px] sm:w-[454px] w-[320px] px-2 lg:px-0 h-auto py-[34px] items-center rounded-[10px]"
-      style={{ boxShadow: "0px 4px 45px 0px #0000001F" }}
-    >
-      <div className={`flex flex-col items-center justify-center h-full ${montserrat.className}`}>
-        <div className="flex items-center justify-center h-full">
-          {/* {currentStepIndex > 0 && (
-            <button
-              onClick={prevStep}
-              className="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700"
+    <div className={` ${montserrat.className}`}>
+      <motion.div
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: -50 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div
+          className="flex flex-col lg:w-[794px] md:w-[494px] sm:w-[454px] w-[320px] px-2 lg:px-0 h-auto py-[34px] items-center rounded-[10px]"
+          style={{ boxShadow: "0px 4px 45px 0px #0000001F" }}
+        >
+          <div className="flex flex-col items-center justify-center h-full">
+            <div className="flex items-center justify-center h-full">
+              <div className="ml-auto text-sm font-medium text-gray-500">
+                {currentStepIndex > 0 ? `${currentStepIndex}/${steps.length - 1}` : ""}
+              </div>
+            </div>
+
+            {currentStepIndex > 0 && (
+              <Progress
+                value={(currentStepIndex / (steps.length - 1)) * 100}
+                className="mb-8 h-[5px] bg-gray-200 accent-white"
+              />
+            )}
+
+            {/* Apply motion to every step */}
+            <motion.div
+              key={currentStepIndex} // ✅ Triggers animation on step change
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.5 }}
+              className="w-full"
             >
-              ← Back
-            </button>
-          )} */}
-          <div className="ml-auto text-sm font-medium text-gray-500">
-            {currentStepIndex > 0
-              ? `${currentStepIndex}/${steps.length - 1}`
-              : ""}
+              {steps[currentStepIndex]}
+            </motion.div>
+
+            {currentStepIndex > 0 && currentStepIndex < steps.length - 1 && (
+              <div className="mt-8 flex justify-end">
+                <button
+                  onClick={nextStep}
+                  className="rounded-full lg:max-w-[365px] h-[35px] lg:w-[365px] max-w-xs bg-[#FF4C4A] px-8 text-white hover:bg-[#FF4C4A]/110"
+                >
+                  <span className={`${montserrat.className} text-[16px] font-[600]`}>
+                    Next
+                  </span>
+                </button>
+              </div>
+            )}
           </div>
         </div>
-        {currentStepIndex > 0 && (
-          <Progress
-            value={(currentStepIndex / (steps.length - 1)) * 100}
-            className="mb-8 h-[5px] bg-gray-200 accent-white "
-          />
-        )}
-        {steps[currentStepIndex]}
-        {currentStepIndex > 0 && currentStepIndex < steps.length - 1 && (
-          <div className="mt-8 flex justify-end">
-            <button
-              onClick={nextStep}
-              className="rounded-full lg:max-w-[365px] h-[35px] lg:w-[365px] max-w-xs bg-[#FF4C4A] px-8  text-white hover:bg-[#FF4C4A]/110"
-            >
-              <span className={`${montserrat.className} text-[16px] font-[600]`}>Next</span>
-            </button>
-          </div>
-        )}
-      </div>
+      </motion.div>
     </div>
   );
 }

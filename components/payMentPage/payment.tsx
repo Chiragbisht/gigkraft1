@@ -13,7 +13,7 @@ export default function BillingPage() {
   const [activeSection, setActiveSection] = useState("billing");
 
   return (
-    <div className="bg-background w-full"
+    <div className="bg-background w-full rounded-[10px]"
     style={{ boxShadow: "0px 4px 45px 0px #0000001F" }}
     >
       <div className="flex">
