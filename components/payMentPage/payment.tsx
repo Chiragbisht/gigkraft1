@@ -6,12 +6,16 @@ import { Button } from "@/components/ui/button";
 import { ChevronLeft } from "lucide-react";
 import MetaMask from "../metaMaskPage/metaMask";
 import IdentityVerification from "./identityVerification"; // Separate component
+import ConnectCoinbaseWallet from "../walletPage/CoinbaseWallet";
+import ConnectWallet from "../walletPage/binanceWallet";
 
 export default function BillingPage() {
   const [activeSection, setActiveSection] = useState("billing");
 
   return (
-    <div className="bg-background">
+    <div className="bg-background w-full"
+    style={{ boxShadow: "0px 4px 45px 0px #0000001F" }}
+    >
       <div className="flex">
         {/* Sidebar */}
         <div className="w-64 border-r min-h-[calc(70vh-64px)] p-6">
@@ -75,17 +79,15 @@ function BillingSection() {
 
       <div className="space-y-4">
         <div className="flex items-center justify-between p-4 border rounded-lg">
-          <div className="font-medium">1. Add Local Bank</div>
-          <Button variant="outline" className="text-black p-5 w-36 bg-green-700 hover:bg-green-400">
-            Add Bank
-          </Button>
+          <div className="font-medium">1. Add Binance Wallet</div>
+        <ConnectWallet/>
         </div>
 
         <div className="flex items-center justify-between p-4 border rounded-lg">
           <div className="flex items-center gap-2">
             <span className="font-medium">2. MetaMask Wallet</span>
           </div>
-          <MetaMask  />
+          <ConnectCoinbaseWallet />
         </div>
       </div>
     </div>
