@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import SignupForm from "./stepTwo";
+import SignupForm from "./step-two/stepTwo";
 import SignUpCard from "./signUpCard";
 
 type UserType = "freelancer" | "client" | null;

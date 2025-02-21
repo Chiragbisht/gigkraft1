@@ -11,7 +11,13 @@ interface SignupCardProps {
   setPassword: (password: string) => void;
 }
 
-const SignUpCard: React.FC<SignupCardProps> = ({ nextStep, email, setEmail, password, setPassword }) => {
+const SignUpCard: React.FC<SignupCardProps> = ({
+  nextStep,
+  email,
+  setEmail,
+  password,
+  setPassword,
+}) => {
   const [error, setError] = useState<string | null>(null);
 
   const handleContinue = () => {
@@ -29,12 +35,12 @@ const SignUpCard: React.FC<SignupCardProps> = ({ nextStep, email, setEmail, pass
       style={{ boxShadow: "0px 4px 45px 0px #0000001F" }}
     >
       <div className=" flex items-center justify-center pb-4">
-              <p
-                className={` font-semibold lg:text-[30px] text-[20px] ${montserrat.className}`}
-              >
-            Get Your Free Account
-              </p>
-            </div>
+        <p
+          className={` font-semibold lg:text-[30px] text-[20px] ${montserrat.className}`}
+        >
+          Get Your Free Account
+        </p>
+      </div>
       <div className="py-2 flex items-center justify-center gap-y-7">
         <button
           className={`${montserrat.className} flex flex-row items-center justify-center gap-x-5 lg:w-[443px] w-[243px] h-[35px] px-5 rounded-[100px] border border-[#000000] text-[12px] font-[600] `}
@@ -49,7 +55,9 @@ const SignUpCard: React.FC<SignupCardProps> = ({ nextStep, email, setEmail, pass
       </div>
       <div className="flex flex-row gap-x-2 items-center justify-center">
         <hr className="h-[1px] lg:w-[210px] w-[105px] bg-[#000000] rounded-[10px] py-[0.2px]" />
-        <span className={`py-4 ${montserrat.className} text-[13px] font-semibold`}>
+        <span
+          className={`py-4 ${montserrat.className} text-[13px] font-semibold`}
+        >
           or
         </span>
         <hr className="h-[1px] lg:w-[210px] w-[105px] bg-[#000000] rounded-[10px] py-[0.2px]" />
@@ -62,13 +70,12 @@ const SignUpCard: React.FC<SignupCardProps> = ({ nextStep, email, setEmail, pass
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-         <input
+        <input
           className={`${montserrat.className} lg:w-[443px] w-[243px] h-[35px] px-5 rounded-[10px] border-[1px] border-[#000000] text-[12px] font-[600] text-[#000000] outline-none`}
           type="email"
           placeholder="Enter your password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          
         />
         {/* {error && <p className="text-red-500 text-sm">{error}</p>} */}
       </div>
