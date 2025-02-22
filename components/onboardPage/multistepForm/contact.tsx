@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/select";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import CountrySelect from "@/components/signupPage/freelancer-multistepForm/step-two/countrySelect/countrySelect";
 
 export function ContactStep({ data, updateFields }: StepProps) {
   const router = useRouter();
@@ -98,19 +99,7 @@ export function ContactStep({ data, updateFields }: StepProps) {
       </div>
       <div className="space-y-2">
         <Label htmlFor="country">Country*</Label>
-        <Select
-          value={data.country}
-          onValueChange={(value) => updateFields({ country: value })}
-        >
-          <SelectTrigger>
-            <SelectValue placeholder="Select a country" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="india">India</SelectItem>
-            <SelectItem value="usa">USA</SelectItem>
-            <SelectItem value="uk">UK</SelectItem>
-          </SelectContent>
-        </Select>
+        <CountrySelect/>
       </div>
     </div>
 
