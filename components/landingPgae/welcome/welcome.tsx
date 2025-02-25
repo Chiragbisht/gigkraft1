@@ -8,7 +8,7 @@ const Welcome = () => {
   return (
     <div className=" w-full bg-[#FF4C4A] h-[272px] flex relative ">
       <Image
-        src="/images/vectors/vector-landingPage.png"
+        src="/images/vectors/Vector-landingPage.png"
         alt="freelax logo"
         width={342}
         height={249}

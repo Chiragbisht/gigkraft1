@@ -8,7 +8,7 @@ const FindTalent = () => {
     <div className=" w-full bg-[#DDE1F3] h-[272px] flex relative ">
       <div className=" w-[320px] h-[200px] absolute bottom-0 left-0 z-0 ">
         <Image
-          src="/images/vectors/vector-gray.png"
+          src="/images/vectors/Vector-gray.png"
           alt="freelax logo"
           width={320}
           height={200}
@@ -18,7 +18,7 @@ const FindTalent = () => {
       <FindTalentHeading />
       <div className=" w-[320px] h-[200px] absolute bottom-0 right-0 z-0 ">
         <Image
-          src="/images/vectors/vector-gray.png"
+          src="/images/vectors/Vector-gray.png"
           alt="freelax logo"
           width={320}
           height={200}
