@@ -1,7 +1,9 @@
 "use client";
+
 import { montserrat } from "@/app/fonts/font";
 import Link from "next/link";
 import React, { useState } from "react";
+import { useGoogleSignUp } from "@/utils/apiHandlers/auth";
 
 interface SignupCardProps {
   nextStep: () => void;
@@ -20,6 +22,13 @@ const SignUpCard: React.FC<SignupCardProps> = ({
 }) => {
   const [error, setError] = useState<string | null>(null);
 
+  // ✅ Call useGoogleSignUp() at the top level
+  const { mutate: signUpWithGoogle, status, error: googleError } = useGoogleSignUp();
+
+  const handleGoogleSignUp = () => {
+    signUpWithGoogle();
+  };
+
   const handleContinue = () => {
     if (!email.trim() || !password.trim()) {
       setError("Please enter a valid email.");
@@ -28,7 +37,7 @@ const SignUpCard: React.FC<SignupCardProps> = ({
     setError(null);
     nextStep();
   };
-
+  const isLoading = status === "pending"; //
   return (
     <div
       className="flex flex-col bg-white lg:w-[794px] md:w-[494px] sm:w-[454px] w-[320px] h-auto py-[34px] items-center rounded-[10px]"
@@ -43,9 +52,13 @@ const SignUpCard: React.FC<SignupCardProps> = ({
       </div>
       <div className="py-2 flex items-center justify-center gap-y-7">
         <button
-          className={`${montserrat.className} flex flex-row items-center justify-center gap-x-5 lg:w-[443px] w-[243px] h-[35px] px-5 rounded-[100px] border border-[#000000] text-[12px] font-[600] `}
+          onClick={handleGoogleSignUp} // ✅ Call function instead of hook
+          disabled={isLoading}
+          className={`${montserrat.className} flex flex-row items-center justify-center gap-x-5 lg:w-[443px] w-[243px] h-[35px] px-5 rounded-[100px] border border-[#000000] text-[12px] font-[600] ${
+            isLoading ? "opacity-50 cursor-not-allowed" : ""
+          }`}
         >
-          Login using{" "}
+          {isLoading ? "Signing in..." : "Login using"}
           <img
             src="/images/icons/google.svg"
             alt="google"
@@ -53,6 +66,9 @@ const SignUpCard: React.FC<SignupCardProps> = ({
           />
         </button>
       </div>
+      {googleError && (
+        <p className="text-red-500 text-sm mt-2">{googleError.message}</p>
+      )}
       <div className="flex flex-row gap-x-2 items-center justify-center">
         <hr className="h-[1px] lg:w-[210px] w-[105px] bg-[#000000] rounded-[10px] py-[0.2px]" />
         <span
@@ -72,12 +88,12 @@ const SignUpCard: React.FC<SignupCardProps> = ({
         />
         <input
           className={`${montserrat.className} lg:w-[443px] w-[243px] h-[35px] px-5 rounded-[10px] border-[1px] border-[#000000] text-[12px] font-[600] text-[#000000] outline-none`}
-          type="email"
+          type="password"
           placeholder="Enter your password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        {/* {error && <p className="text-red-500 text-sm">{error}</p>} */}
+        {error && <p className="text-red-500 text-sm">{error}</p>}
       </div>
       <div className="mt-8 flex items-center justify-center gap-y-7 flex-col">
         <button

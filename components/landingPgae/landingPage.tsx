@@ -4,7 +4,7 @@ import React from "react";
 import { motion } from "motion/react";
 import Welcome from "./welcome/welcome";
 import FindTalent from "./findTalent/findTalent";
-import Category from "./categorySection/category";
+import {CategorySection} from "./categorySection/category";
 import Findwork from "./findWork/findWork";
 import Testimonials from "./testimonials/testimonials";
 import WhyUs from "./whyUs/whyUs";
@@ -21,7 +21,7 @@ const sectionVariants = {
 const LandingPage = () => {
   return (
     <div className="w-full h-full">
-      {[Welcome, FindTalent, Category, Findwork, WhyUs, Testimonials].map(
+      {[Welcome, FindTalent, CategorySection, Findwork, WhyUs, Testimonials].map(
         (Component, index) => (
           <motion.div
             key={index}
