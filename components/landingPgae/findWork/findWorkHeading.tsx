@@ -53,7 +53,7 @@ const FindWorkHeading = () => {
           alt="freelax logo"
           width={322}
           height={237}
-          className="mt-[37px]"
+          className="mt-[37px] lg:flex hidden"
         />
       </motion.div>
     </motion.div>

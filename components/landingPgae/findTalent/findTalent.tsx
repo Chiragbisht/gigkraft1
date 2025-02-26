@@ -5,8 +5,8 @@ import FindTalentHeading from "./findTalentHeading";
 
 const FindTalent = () => {
   return (
-    <div className=" w-full bg-[#DDE1F3] h-[272px] flex relative ">
-      <div className=" w-[320px] h-[200px] absolute bottom-0 left-0 z-0 ">
+    <div className=" w-full bg-[#DDE1F3] lg:h-[272px] h-auto py-5 flex relative px-3 lg:px-0">
+      <div className=" lg:w-[320px] w-[178px] h-[100px] lg:h-[200px] absolute bottom-0 left-0 z-0 ">
         <Image
           src="/images/vectors/Vector-gray.png"
           alt="freelax logo"
@@ -16,7 +16,7 @@ const FindTalent = () => {
         />
       </div>
       <FindTalentHeading />
-      <div className=" w-[320px] h-[200px] absolute bottom-0 right-0 z-0 ">
+      <div className=" lg:w-[320px] w-[178px] h-[100px] lg:h-[200px] absolute bottom-0 right-0 z-0 ">
         <Image
           src="/images/vectors/Vector-gray.png"
           alt="freelax logo"

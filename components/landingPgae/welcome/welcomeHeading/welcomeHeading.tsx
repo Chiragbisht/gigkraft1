@@ -48,7 +48,7 @@ const WelcomeHeading = () => {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
       >
-        <Image src="/images/vectors/welcome.png" alt="freelax logo" width={322} height={237} />
+        <Image src="/images/vectors/welcome.png" alt="freelax logo" width={322} height={237} className=" lg:flex hidden" />
       </motion.div>
     </motion.div>
   );

@@ -6,7 +6,7 @@ import { motion } from "motion/react";
 
 const Welcome = () => {
   return (
-    <div className=" w-full bg-[#FF4C4A] h-[272px] flex relative ">
+    <div className=" w-full bg-[#FF4C4A] lg:h-[272px] h-auto py-5 flex relative lg:px-0 px-3  ">
       <Image
         src="/images/vectors/Vector-landingPage.png"
         alt="freelax logo"
