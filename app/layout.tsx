@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Footer from "@/components/footer/footer";
 import Navbar from "@/components/navbar/navbar";
+import ReactQueryProvider from "@/components/reactQuery/reactQueryProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -31,7 +32,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Navbar />
-        {children}
+        <ReactQueryProvider>
+          {children}
+        </ReactQueryProvider>
         <Footer/>
       </body>
     </html>
