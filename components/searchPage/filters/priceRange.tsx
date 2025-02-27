@@ -1,8 +1,9 @@
+import { montserrat } from "@/app/fonts/font"
 import { Slider } from "@/components/ui/slider"
 
 export function PriceRangeFilter() {
   return (
-    <div className="space-y-6">
+    <div className={` space-y-6 ${montserrat.className}`}>
       <div className="space-y-2 mt-1">
         <h3 className="font-medium">Fixed price</h3>
         <div className="space-y-2">

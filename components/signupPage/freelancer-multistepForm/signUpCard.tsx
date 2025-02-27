@@ -133,6 +133,7 @@ const SignUpCard: React.FC<SignupCardProps> = ({
             }`}
             type="email"
             placeholder="Enter your email"
+            required
             value={email}
             onChange={(e) => {
               setEmail(e.target.value);

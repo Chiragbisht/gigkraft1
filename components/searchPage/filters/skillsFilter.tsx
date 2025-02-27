@@ -3,10 +3,11 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { montserrat } from "@/app/fonts/font";
 
 export function SkillsFilter() {
   return (
-    <div className="space-y-4 pb-2">
+    <div className={`space-y-4 pb-2 ${montserrat.className}`}>
       <div className="flex items-center justify-between">
         <h3 className="font-medium">Skills</h3>
         <Button variant="link" className="text-blue-600 h-auto p-0">
