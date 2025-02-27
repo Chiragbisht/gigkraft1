@@ -3,7 +3,7 @@ import React from "react";
 
 const SearchPage = () => {
   return (
-    <div className=" w-full h-full py-10">
+    <div className=" w-full h-full min-h-screen py-10">
       <div className=" max-w-7xl mx-auto h-full">
         <SearchJobs />
       </div>
