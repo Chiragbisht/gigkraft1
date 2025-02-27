@@ -202,6 +202,18 @@ export const experienceData = [
       location: "London, UK",
       badge: "Verified",
     },
+    {
+      id: 6,
+      jobName: "DevOps Engineer",
+      description: "Hiring a DevOps expert to streamline CI/CD pipelines.",
+      jobLevel: "Mid-Level",
+      budget: 2000,
+      rating: 4.6,
+      postTime: "6 hours ago",
+      reviews: 25,
+      location: "London, UK",
+      badge: "Verified",
+    },
   ];
   
 
