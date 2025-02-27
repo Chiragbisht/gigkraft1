@@ -1,69 +1,93 @@
-import { montserrat } from "@/app/fonts/font";
+"use client";
+import { useState } from "react";
 import Link from "next/link";
-import React from "react";
-import { GoogleLogo } from "./google-button";
+
+import { montserrat } from "@/app/fonts/font";
+import { useLocalLogin } from "@/utils/apiHandlers/auth";
+import { useRouter } from "next/navigation";
+import { useAuthStore } from "@/zustand/nameStore";
 
 const LoginCard: React.FC = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const { mutate: login, status } = useLocalLogin();
+  const isLoading = status === "pending"; // Set loading state
+  const router = useRouter();
+  const { setToken } = useAuthStore();
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    login(
+      { email, password },
+      {
+        onSuccess: (data) => {
+          // console.log("User logged in successfully!", data);
+
+          if (data?.token) {
+            setToken(data.token); // Store token in Zustand
+          }
+
+          // Redirect based on userType
+          if (data?.userType === "freelancer") {
+            router.push("/jobs");
+          } else {
+            router.push("/home");
+          }
+        },
+        onError: (error) => {
+          console.error("Login failed:", error);
+          alert(error.message || "Login failed. Please try again.");
+        },
+      }
+    );
+  };
+
   return (
     <div
       className="flex flex-col lg:w-[794px] bg-white md:w-[494px] sm:w-[494px] w-[320px] h-auto py-[44px] items-center rounded-[10px]"
       style={{ boxShadow: "0px 4px 45px 0px #0000001F" }}
     >
-      <div className=" flex items-center justify-center">
+      <div className="flex items-center justify-center">
         <p
-          className={` font-semibold lg:text-[30px] text-[20px] ${montserrat.className}`}
+          className={`font-semibold lg:text-[30px] text-[20px] ${montserrat.className}`}
         >
-          Login to your Account{" "}
+          Login to your Account
         </p>
       </div>
-      <div className=" mt-12 flex flex-col items-center gap-y-7 ">
+      <form
+        onSubmit={handleLogin}
+        className="mt-12 flex flex-col items-center gap-y-7"
+      >
         <input
           className={`${montserrat.className} lg:w-[443px] w-[243px] h-[35px] px-5 rounded-[10px] border-[1px] border-[#000000] text-[12px] font-[600] text-[#2A1E17] outline-none`}
-          type="text"
+          type="email"
           placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <input
           className={`${montserrat.className} lg:w-[443px] w-[243px] h-[35px] px-5 rounded-[10px] border-[1px] border-[#000000] text-[12px] font-[600] text-[#2A1E17] outline-none`}
           type="password"
-          placeholder="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
-      </div>
-      <div className="mt-8 flex items-center justify-center gap-y-7 flex-col">
         <button
-          className={`${montserrat.className} lg:w-[443px] w-[243px] h-[35px] px-5 rounded-[100px] border-none text-[12px] font-[600] text-white bg-[#FF4C4A]`}
+          type="submit"
+          disabled={isLoading}
+          className={`${montserrat.className} lg:w-[443px] w-[243px] h-[35px] px-5 rounded-[100px] text-[12px] font-[600] text-white bg-[#FF4C4A]`}
         >
-          Login
+          {isLoading ? "Logging in..." : "Login"}
         </button>
-        <p className={`text-[13px] font-[500] ${montserrat.className}`}>
-          Don&apos;t have an account?{" "}
-          <Link href={"/signup"}>
-            {" "}
-            <span className="text-[#FF4C4A] font-[500]">Sign Up</span>
-          </Link>
-        </p>
-      </div>
-      <div className="flex flex-row gap-x-2 items-center justify-center">
-        <hr className="h-[1px] lg:w-[210px] w-[105px] bg-[#000000] rounded-[10px] py-[0.2px]" />
-        <span
-          className={`py-4 ${montserrat.className} text-[13px] font-semibold`}
-        >
-          or
-        </span>
-        <hr className="h-[1px] lg:w-[210px] w-[105px] bg-[#000000] rounded-[10px] py-[0.2px]" />
-      </div>
-      <div className="py-2 flex items-center justify-center gap-y-7">
-        <button
-          className={`${montserrat.className} flex flex-row items-center justify-center gap-x-5 lg:w-[443px] w-[243px] h-[35px] px-5 rounded-[100px] border border-[#000000] text-[12px] font-[600] `}
-        >
-          {" "}
-          Login using{" "}
-          <img
-            src="/images/icons/google.svg"
-            alt="google"
-            className="w-[20px] h-[20px]"
-          />
-        </button>
-      </div>
+      </form>
+      <p className={`text-[13px] font-[500] mt-2 ${montserrat.className}`}>
+        Don&apos;t have an account?{" "}
+        <Link href="/signup">
+          <span className="text-[#FF4C4A] font-[500]">Sign Up</span>
+        </Link>
+      </p>
     </div>
   );
 };

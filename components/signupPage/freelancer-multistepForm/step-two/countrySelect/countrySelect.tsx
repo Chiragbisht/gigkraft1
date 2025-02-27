@@ -1,13 +1,16 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Select from "react-select"
-import { components } from "react-select"
-import ReactCountryFlag from "react-country-flag"
-import { countries } from "@/utils/constant"
+import { useState } from "react";
+import Select from "react-select";
+import { components } from "react-select";
+import ReactCountryFlag from "react-country-flag";
+import { countries } from "@/utils/constant";
+interface CountrySelectProps {
+  setCountry: (country: string) => void;
+}
 
 // Extensive list of countries
-countries.sort((a, b) => a.label.localeCompare(b.label))
+countries.sort((a, b) => a.label.localeCompare(b.label));
 
 // Custom Option component
 const Option = (props: any) => (
@@ -26,7 +29,7 @@ const Option = (props: any) => (
       {props.data.label}
     </div>
   </components.Option>
-)
+);
 
 // Custom SingleValue component
 const SingleValue = ({ children, ...props }: any) => (
@@ -45,11 +48,17 @@ const SingleValue = ({ children, ...props }: any) => (
       {children}
     </div>
   </components.SingleValue>
-)
+);
 
-export default function CountrySelect() {
-    const [selectedCountry, setSelectedCountry] = useState<{ value: string; label: string } | null>(null);
-
+export default function CountrySelect({ setCountry }: CountrySelectProps) {
+  const [selectedCountry, setSelectedCountry] = useState<{
+    value: string;
+    label: string;
+  } | null>(null);
+  const handleChange = (country: any) => {
+    setCountry(country.value);
+    setSelectedCountry(country);
+  };
   return (
     <div className="w-full ">
       <Select
@@ -60,9 +69,8 @@ export default function CountrySelect() {
         placeholder="Select a country"
         aria-label="Select a country"
         value={selectedCountry}
-        onChange={setSelectedCountry}
+        onChange={handleChange} // Fixed onChange
       />
     </div>
-  )
+  );
 }
-

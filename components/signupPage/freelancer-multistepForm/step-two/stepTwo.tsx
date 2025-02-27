@@ -10,12 +10,25 @@ import Link from "next/link";
 import { useState } from "react";
 import CountrySelect from "./countrySelect/countrySelect";
 import UserType from "./userType";
+import { useLocalSignUp } from "@/utils/apiHandlers/auth";
+import { useAuthStore } from "@/zustand/nameStore";
 
 interface SignupFormProps {
   nextStep: () => void;
   prevStep: () => void;
   setUserType: (type: "freelancer" | "client") => void;
+  setCountry: (country: string) => void;
+  setImage: (image: string) => void;
+  setTermsandconditions: (termsandconditions: boolean) => void;
+  image: string;
   email: string;
+  termsandconditions: boolean;
+  firstName: string;
+  lastName: string;
+  country: string;
+  setFirstName: (firstName: string) => void;
+  setLastName: (lastName: string) => void;
+  password: string;
 }
 
 export default function SignupForm({
@@ -23,16 +36,53 @@ export default function SignupForm({
   prevStep,
   setUserType,
   email,
+  setCountry,
+  country,
+  setTermsandconditions,
+  termsandconditions,
+  firstName,
+  setFirstName,
+  lastName,
+  setLastName,
+  password,
 }: SignupFormProps) {
   const [selectedUserType, setSelectedUserType] = useState<
     "freelancer" | "client"
   >("freelancer");
 
-  const handleCreateAccount = () => {
-    setUserType(selectedUserType);
-    nextStep();
-  };
+  const { mutate: localSignUp, status } = useLocalSignUp();
+  // if status=='pending'{
 
+  // }
+  const { setToken } = useAuthStore();
+  const handleCreateAccount = () => {
+   
+    const userData = {
+      firstName,
+      lastName,
+      email,
+      password,
+      userType: selectedUserType,
+      country,
+      termsandconditions,
+    };
+
+    console.log("Signing up user:", userData); // Debugging
+
+    localSignUp(userData, {
+      onSuccess: (data) => {
+        // console.log("Signup successful:", data);
+        if (data.token) {
+          setToken(data.token); // Store the token in Zustand
+        }
+        setUserType(selectedUserType);
+        nextStep();
+      },
+      onError: (error) => {
+        console.error("Signup error:", error.message);
+      },
+    });
+  };
   return (
     <Card
       className={`lg:w-[794px] md:w-[494px] sm:w-[454px] w-[320px] h-auto py-[44px] items-center rounded-[10px] ${montserrat.className}`}
@@ -52,33 +102,58 @@ export default function SignupForm({
       <CardContent className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-2">
-            <Input type="text" placeholder="First Name" />
+            <Input
+              type="text"
+              placeholder="First Name"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+            />
           </div>
           <div className="space-y-2">
-            <Input type="text" placeholder="Last Name" />
+            <Input
+              type="text"
+              placeholder="Last Name"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+            />
           </div>
         </div>
 
         <div className="space-y-2">
-          <CountrySelect />
+          <CountrySelect setCountry={setCountry} />
         </div>
 
         <div className="space-y-3">
           <Label>I am a :</Label>
-          <UserType selectedUserType={selectedUserType} setSelectedUserType={setSelectedUserType} setUserType={setUserType} />
+          <UserType
+            selectedUserType={selectedUserType}
+            setSelectedUserType={setSelectedUserType}
+            setUserType={setUserType}
+          />
         </div>
 
         <div className="space-y-4">
-          <div className="flex items-center  gap-2">
-            <Checkbox id="emails" className="mt-1" />
-            <Label htmlFor="emails" className="text-gray-600 font-normal">
+          {/* <div className="flex items-center gap-2">
+            <Checkbox id="subscribe-emails" className="mt-1" />
+            <Label
+              htmlFor="subscribe-emails"
+              className="text-gray-600 font-normal"
+            >
               Yes! Send me genuinely useful emails every now and then.
             </Label>
-          </div>
+          </div> */}
 
           <div className="flex items-center gap-2">
-            <Checkbox id="terms" className="mt-1" />
-            <Label htmlFor="terms" className="text-gray-600 font-normal">
+            <Checkbox
+              id="terms-checkbox"
+              className="mt-1"
+              checked={termsandconditions}
+              onCheckedChange={(checked) => setTermsandconditions(!!checked)}
+            />
+            <Label
+              htmlFor="terms-checkbox"
+              className="text-gray-600 font-normal"
+            >
               Yes, I understand and agree to the{" "}
               <Link href="#" className="text-red-500 hover:underline">
                 Terms of Service
