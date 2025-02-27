@@ -99,7 +99,7 @@ export function ContactStep({ data, updateFields }: StepProps) {
       </div>
       <div className="space-y-2">
         <Label htmlFor="country">Country*</Label>
-        <CountrySelect/>
+        {/* <CountrySelect /> */}
       </div>
     </div>
 
