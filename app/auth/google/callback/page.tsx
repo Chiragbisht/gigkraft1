@@ -1,14 +1,22 @@
 "use client";
 
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import axios from "axios";
 
 const GoogleCallback = () => {
+  return (
+    <Suspense fallback={<div className="h-screen flex items-center justify-center">Processing Google login...</div>}>
+      <GoogleCallbackContent />
+    </Suspense>
+  );
+};
+
+const GoogleCallbackContent = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const code = searchParams.get("code");
-  console.log(code);
+
   useEffect(() => {
     const exchangeCodeForToken = async () => {
       if (!code) return;
@@ -44,7 +52,7 @@ const GoogleCallback = () => {
   }, [code, router]);
 
   return (
-    <div className=" h-screen flex items-center justify-center">
+    <div className="h-screen flex items-center justify-center">
       <p>Processing Google login...</p>
     </div>
   );
