@@ -12,7 +12,8 @@ export default function MultiStepSignup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [userType, setUserType] = useState<UserType>("freelancer");
-  const [country, setCountry] = useState("");
+  const [country, setCountry] = useState<{ value: string; label: string } | null>(null);
+
   const [image, setImage] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");

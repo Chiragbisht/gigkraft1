@@ -17,7 +17,7 @@ interface SignupFormProps {
   nextStep: () => void;
   prevStep: () => void;
   setUserType: (type: "freelancer" | "client") => void;
-  setCountry: (country: string) => void;
+
   setImage: (image: string) => void;
   setTermsandconditions: (termsandconditions: boolean) => void;
   image: string;
@@ -25,7 +25,10 @@ interface SignupFormProps {
   termsandconditions: boolean;
   firstName: string;
   lastName: string;
-  country: string;
+
+  setCountry: (country: { value: string; label: string } | null) => void;
+  country: { value: string; label: string } | null;
+
   setFirstName: (firstName: string) => void;
   setLastName: (lastName: string) => void;
   password: string;
@@ -56,14 +59,13 @@ export default function SignupForm({
   // }
   const { setToken } = useAuthStore();
   const handleCreateAccount = () => {
-   
     const userData = {
       firstName,
       lastName,
       email,
       password,
       userType: selectedUserType,
-      country,
+      country: country ? country.value : "", // Extracting the string value
       termsandconditions,
     };
 
@@ -71,9 +73,8 @@ export default function SignupForm({
 
     localSignUp(userData, {
       onSuccess: (data) => {
-        // console.log("Signup successful:", data);
         if (data.token) {
-          setToken(data.token); // Store the token in Zustand
+          setToken(data.token);
         }
         setUserType(selectedUserType);
         nextStep();
@@ -83,6 +84,7 @@ export default function SignupForm({
       },
     });
   };
+
   return (
     <Card
       className={`lg:w-[794px] md:w-[494px] sm:w-[454px] w-[320px] h-auto py-[44px] items-center rounded-[10px] ${montserrat.className}`}
@@ -120,7 +122,7 @@ export default function SignupForm({
         </div>
 
         <div className="space-y-2">
-          <CountrySelect setCountry={setCountry} />
+          <CountrySelect setCountry={(value) => setCountry(value)} />
         </div>
 
         <div className="space-y-3">
@@ -174,8 +176,9 @@ export default function SignupForm({
           <Button
             className="bg-red-500 hover:bg-red-600 text-white py-2 px-6"
             onClick={handleCreateAccount}
+            disabled={status === "pending"}
           >
-            Create My Account
+            {status === "pending" ? "Creating Account..." : "Create My Account"}
           </Button>
         </div>
       </CardContent>

@@ -6,7 +6,7 @@ import { components } from "react-select";
 import ReactCountryFlag from "react-country-flag";
 import { countries } from "@/utils/constant";
 interface CountrySelectProps {
-  setCountry: (country: string) => void;
+  setCountry: (country: { value: string; label: string } | null) => void;
 }
 
 // Extensive list of countries
