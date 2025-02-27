@@ -65,11 +65,11 @@ export default function SignupForm({
       email,
       password,
       userType: selectedUserType,
-      country: country ? country.value : "", // Extracting the string value
+      country: country ? country.value : "", // ✅ Ensure value is extracted correctly
       termsandconditions,
     };
 
-    // console.log("Signing up user:", userData); // Debugging
+    console.log("Signing up user:", userData); // Debugging
 
     localSignUp(userData, {
       onSuccess: (data) => {

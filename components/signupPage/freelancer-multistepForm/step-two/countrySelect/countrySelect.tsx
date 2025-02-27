@@ -55,10 +55,11 @@ export default function CountrySelect({ setCountry }: CountrySelectProps) {
     value: string;
     label: string;
   } | null>(null);
-  const handleChange = (country: any) => {
-    setCountry(country.value);
+  const handleChange = (country: { value: string; label: string } | null) => {
+    setCountry(country); // ✅ Pass the full object
     setSelectedCountry(country);
   };
+  
   return (
     <div className="w-full ">
       <Select
