@@ -69,7 +69,7 @@ export default function SignupForm({
       termsandconditions,
     };
 
-    console.log("Signing up user:", userData); // Debugging
+    // console.log("Signing up user:", userData); // Debugging
 
     localSignUp(userData, {
       onSuccess: (data) => {

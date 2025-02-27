@@ -20,16 +20,16 @@ export default function MultiStepSignup() {
   const [termsandconditions, setTermsandconditions] = useState(false);
   const router = useRouter();
 // Log whenever any of the values change
-useEffect(() => {
-  console.log("Updated values:");
-  console.log("First Name:", firstName);
-  console.log("Last Name:", lastName);
-  console.log("Country:", country);
-  console.log("Terms Accepted:", termsandconditions);
-  console.log("Email:", email);
-  console.log("Password:", password);
-  console.log("User Type:", userType);
-}, [firstName, lastName, country, termsandconditions, email, password, userType]);
+// useEffect(() => {
+//   console.log("Updated values:");
+//   console.log("First Name:", firstName);
+//   console.log("Last Name:", lastName);
+//   console.log("Country:", country);
+//   console.log("Terms Accepted:", termsandconditions);
+//   console.log("Email:", email);
+//   console.log("Password:", password);
+//   console.log("User Type:", userType);
+// }, [firstName, lastName, country, termsandconditions, email, password, userType]);
 
   const nextStep = () => setStep((prev) => prev + 1);
   const prevStep = () => setStep((prev) => prev - 1);
