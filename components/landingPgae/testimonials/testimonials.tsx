@@ -62,7 +62,7 @@ export default function Testimonials() {
           <div className="overflow-hidden pt-20">
             <motion.div
               className="flex gap-6"
-              animate={{ x: ["0%", "-50%"] }}
+              animate={{ x: ["0%", "-65%"] }}
               transition={{
                 duration: 16,
                 repeat: Infinity,
