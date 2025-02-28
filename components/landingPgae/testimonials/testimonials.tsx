@@ -49,8 +49,8 @@ export default function Testimonials() {
   const duplicatedTestimonials = [...testimonials, ...testimonials];
 
   return (
-    <section className="py-24 lg:px-4 px-3 w-full max-w-7xl mx-auto">
-      <div className="container mx-auto max-w-7xl">
+    <section className="py-24 lg:px-4 px-0 w-full max-w-7xl lg:mx-auto">
+      <div className="container lg:mx-auto max-w-7xl">
         <div className={`${montserrat.className} text-center mb-16`}>
           <h2 className="text-4xl font-bold mb-4">People talk about us</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
