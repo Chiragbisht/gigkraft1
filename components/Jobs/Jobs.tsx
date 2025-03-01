@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Heading from "./header/heading";
 import NoJobsAlert from "./jobsPopup";
