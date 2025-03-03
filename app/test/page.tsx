@@ -12,7 +12,7 @@ export default function FeaturesSection() {
 
   return (
     <section className="py-16 px-4 md:py-24">
-      {/* <p>Token: {token ? token : "No token found"}</p> */}
+      <p>Token: {token ? token : "No token found"}</p> 
     </section>
   );
 }
