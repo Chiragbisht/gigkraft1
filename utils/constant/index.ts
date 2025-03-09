@@ -1,6 +1,7 @@
 const FreelancerLocation={
     
 }
+import { Contact } from "@/components/chatPage/chatTypes";
 import { User, DollarSign, Phone, Mail, Facebook } from "lucide-react"
 export const experienceData = [
     {
@@ -266,4 +267,51 @@ export const experienceData = [
     { value: "TR", label: "Turkey" },
     { value: "UA", label: "Ukraine" },
     { value: "VN", label: "Vietnam" },
+  ]
+
+ export const contacts: Contact[] = [
+    {
+      id: "1",
+      name: "Manmohan Desia",
+      avatar: "/placeholder.svg?height=50&width=50",
+      lastMessage: "You: Lets connect",
+      time: "13m ago",
+      isActive: true,
+    },
+    {
+      id: "2",
+      name: "Adam Smit",
+      avatar: "/placeholder.svg?height=50&width=50",
+      lastMessage: "Lets connect now i am free...",
+      time: "13m ago",
+      unread: 10,
+    },
+    {
+      id: "3",
+      name: "Kiran Kher",
+      avatar: "/placeholder.svg?height=50&width=50",
+      lastMessage: "You: Lets connect",
+      time: "13m ago",
+    },
+    {
+      id: "4",
+      name: "Kabir khan",
+      avatar: "/placeholder.svg?height=50&width=50",
+      lastMessage: "You: Lets connect",
+      time: "13m ago",
+    },
+    {
+      id: "5",
+      name: "Manmohan Desia",
+      avatar: "/placeholder.svg?height=50&width=50",
+      lastMessage: "You: Lets connect",
+      time: "13m ago",
+    },
+    {
+      id: "6",
+      name: "Kajol Sharma",
+      avatar: "/placeholder.svg?height=50&width=50",
+      lastMessage: "You: Lets connect",
+      time: "13m ago",
+    },
   ]

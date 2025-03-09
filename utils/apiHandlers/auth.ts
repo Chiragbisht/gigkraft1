@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
-const Base_Url = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+const Base_Url = "http://localhost:3000";
 // console.log(Base_Url);
 
 async function signUpWithGoogle(): Promise<void> {

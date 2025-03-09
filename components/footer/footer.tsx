@@ -1,7 +1,15 @@
+"use client"
+
 import { montserrat } from "@/app/fonts/font";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
+  const pathname = usePathname()
+  const isChatPage = ["/chats", "/chats/[id]"].includes(pathname)
+  if (isChatPage) {
+    return null
+  }
   return (
     <footer className={`${montserrat.className} bg-[#1C1C1C] text-white px-8  w-full h-auto`}>
       <div className="max-w-7xl mx-auto pt-4 py-2">

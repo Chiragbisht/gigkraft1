@@ -11,12 +11,16 @@ import { useRouter } from "next/navigation"
 export default function Navbar() {
   const pathname = usePathname()
   const isAuthPage = ["/onboarding", "/signup", "/login"].includes(pathname)
+  const isChatPage = ["/chats", "/chats/[id]"].includes(pathname)
   const router = useRouter()
   const handleLogin = () => {
     router.push("/login")
   }
   const handleSignup = () => {
     router.push("/signup")
+  }
+  if (isChatPage) {
+    return null
   }
   return (
     <nav className={`border-b ${montserrat.className}`}>
