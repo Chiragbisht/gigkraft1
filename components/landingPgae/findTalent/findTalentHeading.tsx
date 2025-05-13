@@ -1,6 +1,7 @@
 import { montserrat } from "@/app/fonts/font";
 import Image from "next/image";
 import React from "react";
+import Link from "next/link";
 
 const FindTalentHeading = () => {
   return (
@@ -20,9 +21,11 @@ const FindTalentHeading = () => {
         <div
           className={` flex flex-row items-start gap-x-4 ${montserrat.className}`}
         >
-          <button className=" bg-[#4260DA] text-white font-[600] border-white border text-[14px]  px-4 py-2 rounded-full">
-            Find Talent
-          </button>
+          <Link href="/find-talent">
+            <button className="bg-[#4260DA] text-white font-[600] border-white border text-[14px] px-4 py-2 rounded-full">
+              Find Talent
+            </button>
+          </Link>
         </div>
       </div>
       <Image

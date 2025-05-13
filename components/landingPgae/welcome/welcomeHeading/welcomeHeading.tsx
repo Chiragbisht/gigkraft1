@@ -4,8 +4,12 @@ import { montserrat } from "@/app/fonts/font";
 import Image from "next/image";
 import { motion } from "motion/react";
 import React from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const WelcomeHeading = () => {
+  const router = useRouter();
+  
   return (
     <motion.div
       initial={{ opacity: 0, y: -30 }}
@@ -26,20 +30,24 @@ const WelcomeHeading = () => {
           Find the best talent and best work based on your skills from around the world.
         </p>
         <div className={`flex flex-row items-start gap-x-4 ${montserrat.className}`}>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-transparent text-white border-white border text-[12px] font-[600] px-4 py-2 rounded-full"
-          >
-            Join Now
-          </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-black text-white text-[12px] font-[600] px-4 py-2 rounded-full"
-          >
-            Learn More
-          </motion.button>
+          <Link href="/signup">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-transparent text-white border-white border text-[12px] font-[600] px-4 py-2 rounded-full"
+            >
+              Join Now
+            </motion.button>
+          </Link>
+          <Link href="/about">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-black text-white text-[12px] font-[600] px-4 py-2 rounded-full"
+            >
+              Learn More
+            </motion.button>
+          </Link>
         </div>
       </motion.div>
 

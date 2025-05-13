@@ -4,6 +4,7 @@ import { montserrat } from "@/app/fonts/font";
 import Image from "next/image";
 import { motion } from "motion/react";
 import React from "react";
+import Link from "next/link";
 
 const FindWorkHeading = () => {
   return (
@@ -32,14 +33,16 @@ const FindWorkHeading = () => {
           transition={{ duration: 1.2, ease: "easeOut", delay: 1 }} // Button appears after content
           className={`flex flex-row items-start gap-x-4 ${montserrat.className}`}
         >
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ duration: 0.3 }}
-            className="bg-[#4260DA] text-white font-[600] border-white border text-[14px] px-4 py-2 rounded-full"
-          >
-            Find Opportunity
-          </motion.button>
+          <Link href="/find-work">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.3 }}
+              className="bg-[#4260DA] text-white font-[600] border-white border text-[14px] px-4 py-2 rounded-full"
+            >
+              Find Opportunity
+            </motion.button>
+          </Link>
         </motion.div>
       </motion.div>
 
